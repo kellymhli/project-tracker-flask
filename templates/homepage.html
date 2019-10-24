@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+    <ul>
+    Students:
+    {% for student in students %}
+        <li><a href="/student?github={{ student[0] }}"></a>{{ student[0] }}</li>
+    {% endfor %}
+    </ul>
+
+    <ul>
+    Projects:
+    {% for project in projects %}
+        <li><a href="/project?prj={{ project[0] }}"></a>{{ project[0] }}</li>
+    {% endfor %}
+    </ul>
+
+</body>
+</html>

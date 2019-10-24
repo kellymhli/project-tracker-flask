@@ -9,11 +9,14 @@ app = Flask(__name__)
 
 @app.route("/")
 def homepage():
-    students = hackbright.get_all_students()
+    """Show homepage."""
 
+    students = hackbright.get_all_students()
     projects = hackbright.get_all_projects()
 
-    return render_template("homepage.html", students=students, projects=projects)
+    return render_template("homepage.html", 
+                           students=students, 
+                           projects=projects)
 
 
 @app.route("/student")
@@ -25,9 +28,6 @@ def get_student():
     first, last, github = hackbright.get_student_by_github(github)
 
     project_grade_list = hackbright.get_grades_by_github(github)
-
-    print('LOOOOOOOOOK HEERREEEEEEEEEEEEEEE')
-    print(project_grade_list)
 
     html = render_template("student_info.html",
                            first=first,
